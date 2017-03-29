@@ -1,6 +1,10 @@
 package com.dbg.model.evaluation;
 
-public class Evaluation {
+import java.io.Serializable;
+
+public class Evaluation implements Serializable {
+
+	private static final long serialVersionUID = -8926502237214077649L;
 
 	private Integer id;
 

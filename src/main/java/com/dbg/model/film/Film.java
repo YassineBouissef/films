@@ -1,6 +1,10 @@
 package com.dbg.model.film;
 
-public class Film {
+import java.io.Serializable;
+
+public class Film implements Serializable {
+
+	private static final long serialVersionUID = -4020532299039261048L;
 
 	private Integer id;
 

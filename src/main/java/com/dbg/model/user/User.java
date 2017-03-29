@@ -1,6 +1,10 @@
 package com.dbg.model.user;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+
+	private static final long serialVersionUID = 1443030971354997994L;
 
 	private Integer id;
 

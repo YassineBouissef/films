@@ -1,6 +1,10 @@
 package com.dbg.model.category;
 
-public class Category {
+import java.io.Serializable;
+
+public class Category implements Serializable {
+
+	private static final long serialVersionUID = -6850865486572251075L;
 
 	private Integer id;
 
