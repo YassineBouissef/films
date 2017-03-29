@@ -2,6 +2,7 @@ package com.dbg.model.user;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,7 +18,8 @@ public class User implements Serializable {
 	@GeneratedValue
 	private Integer id;
 
-	private Integer name;
+	@Column(unique = true)
+	private String name;
 
 	public Integer getId() {
 		return id;
@@ -27,11 +29,11 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(Integer name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
