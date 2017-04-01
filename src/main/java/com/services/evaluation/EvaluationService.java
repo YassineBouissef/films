@@ -6,12 +6,14 @@ import dto.EvaluationDTO;
 
 public interface EvaluationService {
 
-	EvaluationDTO transform(Evaluation evaluation);
-
-	Evaluation transform(EvaluationDTO evaluationDTO);
+	
 
 	EvaluationDTO findEvaluationDTOId(Integer id);
 
 	EvaluationDTO create(EvaluationDTO evaluation);
+	
+	EvaluationDTO transform(Evaluation evaluation);
+
+	Evaluation transform(EvaluationDTO evaluationDTO);
 
 }

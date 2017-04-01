@@ -18,6 +18,7 @@ public class EvaluationServiceImpl  implements EvaluationService{
 	//@Autowired 
 	//private DozerBeanMapper dozer;
 	
+	@Override
 	public EvaluationDTO findEvaluationDTOId(Integer id){
 		return transform(findEvaluationById(id));
 	}
@@ -26,8 +27,6 @@ public class EvaluationServiceImpl  implements EvaluationService{
 		final Evaluation evaluation = evaluationDao.findOne(id);
 		return evaluation;
 	}
-	
-
 	
 	public EvaluationDTO create(EvaluationDTO evaluationDTO) {
 		final Evaluation evaluation = transform(evaluationDTO);
