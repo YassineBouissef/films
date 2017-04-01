@@ -11,6 +11,6 @@ import com.models.user.User;
 @Repository
 public interface UserDao extends PagingAndSortingRepository<User, Integer> {
 
-	public List<User> findByNameContaining(String name);
+	public List<User> findByNameContaining(Integer id);
 
 }

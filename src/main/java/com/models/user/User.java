@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import com.models.evaluation.Evaluation;
 
 @Entity
-//@Table(name = "user")
+@Table(name = "user")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1443030971354997994L;

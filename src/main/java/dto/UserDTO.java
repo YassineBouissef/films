@@ -37,6 +37,11 @@ public class UserDTO  implements Serializable {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "UserDTO [Id=" + Id + ", name=" + name + "]";
+	}
+
 	
 	
 }

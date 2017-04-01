@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import com.models.film.Film;
 
 @Entity
-//@Table(name = "category")
+@Table(name = "category")
 public class Category implements Serializable {
 
 	private static final long serialVersionUID = -6850865486572251075L;
