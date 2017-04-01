@@ -41,7 +41,4 @@ public class UserDTO  implements Serializable {
 	public String toString() {
 		return "UserDTO [Id=" + Id + ", name=" + name + "]";
 	}
-
-	
-	
 }

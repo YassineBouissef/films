@@ -11,7 +11,9 @@ public interface UserService {
 	
 	List<UserDTO> findAll();
 
-	UserDTO findById(Integer id);
+	User findUserById(Integer id);
+	
+	UserDTO findUserDTOById(Integer id);
 
 	UserDTO transform(User user);
 

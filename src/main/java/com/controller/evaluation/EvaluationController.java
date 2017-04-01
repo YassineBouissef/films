@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.models.evaluation.Evaluation;
 import com.services.evaluation.EvaluationService;
 
 import dto.EvaluationDTO;
@@ -16,11 +17,19 @@ import dto.EvaluationDTO;
 @RestController
 @RequestMapping(value = "/evaluation")
 public class EvaluationController {
+	
 	private static final Logger log = LoggerFactory.getLogger(EvaluationController.class);
 
 	
 	@Autowired
 	private EvaluationService evaluationService;
+	
+	/*
+	@RequestMapping(method = RequestMethod.GET)
+	public Evaluation findAll(){
+		return new Evaluation();
+	}*/
+	
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public EvaluationDTO findOne(@PathVariable("id") Integer id) {

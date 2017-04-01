@@ -6,8 +6,6 @@ import dto.EvaluationDTO;
 
 public interface EvaluationService {
 
-	
-
 	EvaluationDTO findEvaluationDTOId(Integer id);
 
 	EvaluationDTO create(EvaluationDTO evaluation);

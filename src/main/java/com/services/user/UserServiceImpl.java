@@ -21,31 +21,42 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
 	
+	/********************BUSCAR(Todos)**************************/
+
 	public List<UserDTO> findAll() {
 		final Iterable<User> users = userDao.findAll();
 		final List<UserDTO> usersDTO = new ArrayList<UserDTO>();
 		users.forEach(u -> { usersDTO.add(transform(u)); });
 		return usersDTO;
-	
 	}
 	
+	/********************BUSCAR(Id)**************************/
 	@Override
-	public UserDTO findById(Integer id) {
-		final User u = userDao.findOne(id);
-		return transform(u);
+	public UserDTO findUserDTOById(Integer id) {
+		return transform(findUserById(id));
 	}
 	
+	
+	public User findUserById(Integer id) {
+		final User user = userDao.findOne(id);
+		return user;
+	}
+	
+	/********************CREAR**************************/
+
 	@Override
 	public UserDTO create(UserDTO userDTO) {
 		final User user = transform(userDTO);
 		return transform(userDao.save(user));
 	}
 	
+	/********************BORRAR**************************/
 	@Override
 	public void delete(Integer id) {
 		userDao.delete(id);
 	}
 	
+	/********************TRASNFORMAR**************************/
 	@Override
 	public UserDTO transform(User user) {
 		final UserDTO userDTO = new UserDTO(user.getId(),user.getName());
@@ -59,4 +70,5 @@ public class UserServiceImpl implements UserService {
 		user.setName(u.getName());
 		return user;
 	}
+
 }
