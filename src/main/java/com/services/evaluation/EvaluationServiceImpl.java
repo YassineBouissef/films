@@ -1,9 +1,10 @@
 package com.services.evaluation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-//import org.dozer.DozerBeanMapper;
-
 import com.dao.evaluation.EvaluationDao;
 import com.models.evaluation.Evaluation;
 
@@ -13,11 +14,10 @@ import dto.EvaluationDTO;
 public class EvaluationServiceImpl  implements EvaluationService{
 
 	@Autowired 
-	private EvaluationDao evaluationDao;
+	private EvaluationDao evaluationDao;	
 	
-	//@Autowired 
-	//private DozerBeanMapper dozer;
-	
+	/******************** BUSCAR(Id) **************************/
+
 	@Override
 	public EvaluationDTO findEvaluationDTOId(Integer id){
 		return transform(findEvaluationById(id));
@@ -28,18 +28,30 @@ public class EvaluationServiceImpl  implements EvaluationService{
 		return evaluation;
 	}
 	
+	/******************** BUSCAR(Todos) **************************/
+
+	@Override
+	public List<EvaluationDTO> findAll() {
+		final Iterable<Evaluation> evaluations = evaluationDao.findAll();
+		final List<EvaluationDTO> evaluationsDTO = new ArrayList<EvaluationDTO>();
+		evaluations.forEach(u -> {evaluationsDTO.add(transform(u)); });
+		return evaluationsDTO;
+	}
+	
+	/********************** CREAR *****************************/
+
 	public EvaluationDTO create(EvaluationDTO evaluationDTO) {
 		final Evaluation evaluation = transform(evaluationDTO);
 		return transform(evaluationDao.save(evaluation));
 	}
 	
+	/********************** TRASNFORMAR *****************************/
 	
 	public EvaluationDTO transform(Evaluation evaluation) {
 		final EvaluationDTO evaluationDTO = new EvaluationDTO(evaluation.getId(),evaluation.getPoints(),evaluation.getUser(),evaluation.getFilm());
 		return evaluationDTO;
 	}
-
-	
+		
 	public Evaluation transform(EvaluationDTO evaluationDTO) {
 		final Evaluation evaluation = new Evaluation();
 		evaluation.setId(evaluationDTO.getId());
@@ -49,4 +61,5 @@ public class EvaluationServiceImpl  implements EvaluationService{
 		
 		return evaluation;
 	}
+
 }

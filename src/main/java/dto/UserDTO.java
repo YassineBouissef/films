@@ -7,38 +7,27 @@ public class UserDTO  implements Serializable {
 
 	private static final long serialVersionUID = -6608062330490381145L;
 
-	private Integer Id;
-	
-	private String name;
+	private Integer id;
 
 	public UserDTO() {
 		super();
 	}
 
-	public UserDTO(Integer id, String name) {
+	public UserDTO(Integer id) {
 		super();
-		Id = id;
-		this.name = name;
+		this.id = id;
 	}
 
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		Id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+		this.id = id;
 	}
 
 	@Override
 	public String toString() {
-		return "UserDTO [Id=" + Id + ", name=" + name + "]";
+		return "UserDTO [id=" + id + "]";
 	}
 }

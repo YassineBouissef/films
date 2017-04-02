@@ -2,23 +2,35 @@ package com.dao.evaluation;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.websocket.Session;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties.Hibernate;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import com.jayway.jsonpath.Criteria;
 import com.models.evaluation.Evaluation;
 
+import dto.EvaluationDTO;
+
 @Repository
-public class EvaluationDao {
-	public List<Evaluation> findByInteger(Integer id) {
-		return null;
-	}
+public interface EvaluationDao extends PagingAndSortingRepository<Evaluation, Integer>{
 
-	public Evaluation findOne(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Evaluation save(Evaluation evaluation) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
+	/*
+	public static List<EvaluationDTO> findByInteger(Integer id) {		
+		//Get All Evaluation
+		
+		Session session = Hibernate.getHibernateSession();
+		Criteria criteria = session.createCriteria(Evaluation.class);
+		List<EvaluationDTO> evaluatios = criteria.list();
+		for(EvaluationDTO eval : evaluatios){
+			System.out.println("ID="+eval.getId()+", Points="+eval.getPoints()+", User="+eval.getUser().getName()+" Film="+eval.getFilm().getTitle());
+		}	 
+	}*/
 }

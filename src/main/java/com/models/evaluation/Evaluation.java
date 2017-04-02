@@ -24,16 +24,6 @@ public class Evaluation implements Serializable {
 
 	@Column(nullable = false)
 	private Integer points;
-	
-	private String memento;
-	
-	public String getMemento() {
-		return memento;
-	}
-
-	public void setMemento(String memento) {
-		this.memento = memento;
-	}
 
 	@ManyToOne
 	private Film film;

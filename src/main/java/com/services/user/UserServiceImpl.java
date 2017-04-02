@@ -16,12 +16,11 @@ import dto.UserDTO;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
-
 	
 	@Autowired
 	private UserDao userDao;
 	
-	/********************BUSCAR(Todos)**************************/
+	/******************** FIND(All) **************************/
 
 	public List<UserDTO> findAll() {
 		final Iterable<User> users = userDao.findAll();
@@ -30,19 +29,21 @@ public class UserServiceImpl implements UserService {
 		return usersDTO;
 	}
 	
-	/********************BUSCAR(Id)**************************/
+	/******************** FIND(Id) **************************/
 	@Override
-	public UserDTO findUserDTOById(Integer id) {
+	public UserDTO findUserDTOById(Integer id) throws UserNotFoundException {
 		return transform(findUserById(id));
 	}
 	
-	
-	public User findUserById(Integer id) {
+	public User findUserById(Integer id) throws UserNotFoundException{
 		final User user = userDao.findOne(id);
-		return user;
+		if(user == null){
+			return user;
+		}
+		throw new UserNotFoundException();
 	}
 	
-	/********************CREAR**************************/
+	/******************** CREATE **************************/
 
 	@Override
 	public UserDTO create(UserDTO userDTO) {
@@ -50,16 +51,16 @@ public class UserServiceImpl implements UserService {
 		return transform(userDao.save(user));
 	}
 	
-	/********************BORRAR**************************/
+	/******************** BORRAR **************************/
 	@Override
 	public void delete(Integer id) {
 		userDao.delete(id);
 	}
 	
-	/********************TRASNFORMAR**************************/
+	/********************TRANSFORM**************************/
 	@Override
 	public UserDTO transform(User user) {
-		final UserDTO userDTO = new UserDTO(user.getId(),user.getName());
+		final UserDTO userDTO = new UserDTO(user.getId());
 		return userDTO;
 	}
 	
@@ -67,7 +68,6 @@ public class UserServiceImpl implements UserService {
 	public User transform(UserDTO u) {
 		final User user = new User();
 		user.setId(u.getId());
-		user.setName(u.getName());
 		return user;
 	}
 

@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.models.user.User;
+import com.services.user.InvalidDataException;
+import com.services.user.UserNotFoundException;
 import com.services.user.UserService;
 
 import dto.UserDTO;
@@ -18,28 +18,22 @@ import dto.UserDTO;
 @RestController
 @RequestMapping(value="/user")
 public class UserController {
+	
 	@Autowired
 	private UserService userService;
-		
-	/*
-	@RequestMapping(method = RequestMethod.GET)
-	public User findAll(){
-		return new User();
-	}*/
-	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public UserDTO findById(@PathVariable("id") Integer id){
-		return userService.findUserDTOById(id);
-	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<UserDTO> findAll(@RequestParam(value = "name", required = false) String name) {
+	public List<UserDTO> findAll() {
 		return userService.findAll();
 	}
 	
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public UserDTO findById(@PathVariable("id") Integer id) throws UserNotFoundException{
+		return userService.findUserDTOById(id);
+	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public UserDTO create(@RequestBody UserDTO userDTO){
+	public UserDTO create(@RequestBody UserDTO userDTO) throws InvalidDataException{
 		return userService.create(userDTO);
 	}
 	
@@ -47,6 +41,5 @@ public class UserController {
 	public void delete(@PathVariable("id") Integer id){
 		userService.delete(id);
 	}
-	
 }
 
