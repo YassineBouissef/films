@@ -16,6 +16,18 @@ public class EvaluationServiceImpl  implements EvaluationService{
 	@Autowired 
 	private EvaluationDao evaluationDao;	
 	
+	/******************** BUSCAR(Id) DEVUELVE(Todos)**************************/
+
+	public EvaluationDTO findEvaluationAll(Integer id){
+		final Iterable<Evaluation> findAll = evaluationDao.findAll();
+		final List<EvaluationDTO> evaluation = new ArrayList<>();
+		findAll.forEach(b -> {
+			final EvaluationDTO eval = transform(b);
+			evaluation.add(eval);
+		});
+		return (EvaluationDTO) evaluation;
+	}
+		
 	/******************** BUSCAR(Id) **************************/
 
 	@Override

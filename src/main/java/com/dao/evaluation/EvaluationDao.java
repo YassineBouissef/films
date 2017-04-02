@@ -18,9 +18,9 @@ import com.models.evaluation.Evaluation;
 import dto.EvaluationDTO;
 
 @Repository
-public interface EvaluationDao extends PagingAndSortingRepository<Evaluation, Integer>{
-
+public interface EvaluationDao extends PagingAndSortingRepository<Evaluation, Integer>{	
 	
+	//----------------------------- NO FUNCIONA ----------------------------------//
 	
 	/*
 	public static List<EvaluationDTO> findByInteger(Integer id) {		
@@ -28,9 +28,11 @@ public interface EvaluationDao extends PagingAndSortingRepository<Evaluation, In
 		
 		Session session = Hibernate.getHibernateSession();
 		Criteria criteria = session.createCriteria(Evaluation.class);
-		List<EvaluationDTO> evaluatios = criteria.list();
-		for(EvaluationDTO eval : evaluatios){
+		List<EvaluationDTO> evaluations = criteria.list();
+		for(EvaluationDTO eval : evaluations){
 			System.out.println("ID="+eval.getId()+", Points="+eval.getPoints()+", User="+eval.getUser().getName()+" Film="+eval.getFilm().getTitle());
 		}	 
 	}*/
+	
+
 }
