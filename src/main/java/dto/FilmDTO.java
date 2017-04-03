@@ -22,6 +22,13 @@ public class FilmDTO {
 		this.categoryDTO = categoryDTO;
 		this.evaluationsDTO = evaluationsDTO;
 	}
+
+	
+	public FilmDTO(String title, Integer year) {
+		super();
+		this.title = title;
+		this.year = year;
+	}
 	public Integer getId() {
 		return id;
 	}
