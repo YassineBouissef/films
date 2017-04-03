@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.dao.film.FilmDao;
 import com.models.film.Film;
 
 import dto.FilmDTO;
 
+@Service
 public class FilmServiceImpl implements FilmService{
 	
 	@Autowired
