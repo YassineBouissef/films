@@ -40,7 +40,6 @@ public class FilmController {
 		return service.update(id, f);
 	}
 	
-	
 	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)
 	public void delete(@PathVariable("id") Integer id){
 		service.delete(id);
