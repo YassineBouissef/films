@@ -10,66 +10,56 @@ public class EvaluationDTO implements Serializable{
 	
 	private Integer id;
 	private Integer points;
-	private User user;
-	private Film film;
-	
+	private UserDTO userDTO;
+	private FilmDTO filmDTO;
 	
 	public EvaluationDTO() {
 		super();
 	}
-	
-	
-	public EvaluationDTO(Integer id, Integer points, User user, Film film) {
+
+	public EvaluationDTO(Integer id, Integer points, UserDTO userDTO, FilmDTO filmDTO) {
 		super();
 		this.id = id;
 		this.points = points;
-		this.user = user;
-		this.film = film;
+		this.userDTO = userDTO;
+		this.filmDTO = filmDTO;
 	}
 
-
-
-
-	public User getUser() {
-		return user;
+	public EvaluationDTO(Integer id2, Integer points2, User user, Film film) {
+		// TODO Auto-generated constructor stub
 	}
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-
-	public Film getFilm() {
-		return film;
-	}
-
-
-	public void setFilm(Film film) {
-		this.film = film;
-	}
-
 
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public Integer getPoints() {
 		return points;
 	}
+
 	public void setPoints(Integer points) {
 		this.points = points;
 	}
 
-
-	@Override
-	public String toString() {
-		return "EvaluationDTO [id=" + id + ", points=" + points + ", user=" + user + ", film=" + film + "]";
+	public UserDTO getUserDTO() {
+		return userDTO;
 	}
-	
+
+	public void setUserDTO(UserDTO userDTO) {
+		this.userDTO = userDTO;
+	}
+
+	public FilmDTO getFilmDTO() {
+		return filmDTO;
+	}
+
+	public void setFilmDTO(FilmDTO filmDTO) {
+		this.filmDTO = filmDTO;
+	}
 
 
-	
 }

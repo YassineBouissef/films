@@ -1,5 +1,7 @@
 package com.controller.evaluation;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +33,9 @@ public class EvaluationController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public EvaluationDTO findAll(@RequestParam(value ="id", required = false) Integer id, @RequestParam(value ="points", required = false) Integer points, @RequestParam(value ="user", required = false) User user, @RequestParam(value ="film", required = false) Film film) {
+	public List<EvaluationDTO> findAll(@RequestParam(value ="id", required = false) Integer id, @RequestParam(value ="points", required = false) Integer points, @RequestParam(value ="user", required = false) User user, @RequestParam(value ="film", required = false) Film film) {
 		log.debug(String.format("Buscando evaluaciones con id %s, puntuación %s, usuario %s y film %s", id,points,user,film));
-		return (EvaluationDTO) evaluationService.findAll();
+		return evaluationService.findAll();
 	}
 	
 	@RequestMapping(method = { RequestMethod.POST })

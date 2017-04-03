@@ -68,8 +68,8 @@ public class EvaluationServiceImpl  implements EvaluationService{
 		final Evaluation evaluation = new Evaluation();
 		evaluation.setId(evaluationDTO.getId());
 		evaluation.setPoints(evaluationDTO.getPoints());
-		evaluation.setUser(evaluationDTO.getUser());
-		evaluation.setFilm(evaluationDTO.getFilm());
+		evaluation.setUser(evaluationDTO.getUserDTO());
+		evaluation.setFilm(evaluationDTO.getFilmDTO());
 		
 		return evaluation;
 	}

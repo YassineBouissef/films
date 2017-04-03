@@ -12,6 +12,9 @@ import javax.persistence.Table;
 import com.models.film.Film;
 import com.models.user.User;
 
+import dto.FilmDTO;
+import dto.UserDTO;
+
 @Entity
 @Table(name = "evaluation")
 public class Evaluation implements Serializable {
@@ -61,6 +64,16 @@ public class Evaluation implements Serializable {
 
 	public void setPoints(Integer points) {
 		this.points = points;
+	}
+
+	public void setUser(UserDTO userDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setFilm(FilmDTO filmDTO) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
